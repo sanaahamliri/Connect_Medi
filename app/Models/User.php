@@ -21,8 +21,23 @@ class User extends Authenticatable
         'name',
         'email',
         'password',
+        'role',
     ];
 
+    public function doctorProfile()
+    {
+        return $this->hasOne(Doctor::class);
+    }
+
+    public function patientProfile()
+    {
+        return $this->hasOne(Patient::class);
+    }
+
+    public function adminProfile()
+    {
+        return $this->hasOne(Admin::class);
+    }
     /**
      * The attributes that should be hidden for serialization.
      *
